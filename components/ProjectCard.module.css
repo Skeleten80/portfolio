@@ -1,0 +1,92 @@
+.card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out),
+    border-color 0.35s var(--ease-out), background 0.35s var(--ease-out);
+}
+
+/* Hover: rises slightly, border brightens, material clears — restrained */
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, calc(var(--glass-border-opacity) * 1.9));
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, calc(var(--glass-opacity) * 2.1)) 0%,
+      rgba(255, 255, 255, calc(var(--glass-opacity) * 0.7)) 100%);
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, calc(var(--glass-highlight-opacity) * 0.45));
+}
+[data-theme="light"] .card:hover {
+  border-color: rgba(20, 28, 40, 0.22);
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.card:hover .media img { transform: scale(1.045); }
+
+.status {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  --glass-blur: 14px;
+  --glass-opacity: 0.16;
+}
+
+.body {
+  padding: 22px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.name { font-size: 20px; }
+.tagline { font-size: 14px; color: var(--accent-strong); font-weight: 600; }
+.desc {
+  font-size: 14.5px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.meta {
+  margin-top: auto;
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.updated {
+  font-size: 12.5px;
+  color: var(--text-tertiary);
+}
+
+/* Whole-card link overlay when a link exists */
+.cardLink {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+}
+.cardLink:focus-visible { outline-offset: -2px; }

@@ -1,0 +1,83 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.fieldA,
+.fieldB,
+.fieldC {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.5;
+  will-change: transform;
+}
+
+/* Cool indigo light source, upper left */
+.fieldA {
+  width: 55vmax;
+  height: 55vmax;
+  left: -18vmax;
+  top: -20vmax;
+  background: radial-gradient(circle, rgba(80, 110, 220, 0.16), transparent 65%);
+  animation: driftA 90s ease-in-out infinite alternate;
+}
+
+/* Faint cool-white source, lower right */
+.fieldB {
+  width: 48vmax;
+  height: 48vmax;
+  right: -16vmax;
+  bottom: -18vmax;
+  background: radial-gradient(circle, rgba(150, 180, 230, 0.10), transparent 65%);
+  animation: driftB 110s ease-in-out infinite alternate;
+}
+
+/* Whisper of blue across the middle */
+.fieldC {
+  width: 70vmax;
+  height: 30vmax;
+  left: 15vmax;
+  top: 35vh;
+  background: radial-gradient(ellipse, rgba(70, 100, 200, 0.07), transparent 70%);
+  animation: driftC 130s ease-in-out infinite alternate;
+}
+
+@keyframes driftA {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(6vmax, 4vmax) scale(1.08); }
+}
+@keyframes driftB {
+  from { transform: translate(0, 0) scale(1.05); }
+  to { transform: translate(-5vmax, -6vmax) scale(1); }
+}
+@keyframes driftC {
+  from { transform: translateX(0); }
+  to { transform: translateX(-8vmax); }
+}
+
+/* Film grain — SVG turbulence, very faint */
+.grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
+
+[data-theme="light"] .fieldA {
+  background: radial-gradient(circle, rgba(120, 150, 240, 0.20), transparent 65%);
+}
+[data-theme="light"] .fieldB {
+  background: radial-gradient(circle, rgba(190, 200, 220, 0.35), transparent 65%);
+}
+[data-theme="light"] .fieldC {
+  background: radial-gradient(ellipse, rgba(140, 160, 220, 0.12), transparent 70%);
+}
+[data-theme="light"] .grain { opacity: 0.035; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fieldA, .fieldB, .fieldC { animation: none; }
+}

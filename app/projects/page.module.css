@@ -1,0 +1,29 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 36px;
+}
+
+.filter {
+  cursor: pointer;
+  font-family: inherit;
+  color: var(--text-secondary);
+  transition: filter 0.18s var(--ease-out), color 0.18s var(--ease-out),
+    background 0.2s var(--ease-out);
+  border: 1px solid var(--glass-border);
+}
+.filter:hover { filter: brightness(1.25); color: var(--text-primary); }
+.filter.on {
+  color: var(--text-primary);
+  background:
+    linear-gradient(135deg, var(--accent-soft), transparent),
+    rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, calc(var(--glass-border-opacity) * 1.8));
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}

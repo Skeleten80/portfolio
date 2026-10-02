@@ -1,0 +1,46 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 26px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: transform 0.18s var(--ease-out), filter 0.18s var(--ease-out),
+    background 0.25s var(--ease-out);
+  /* glass-thin gives pill radius + material; strengthen slightly for buttons */
+  --glass-opacity: 0.12;
+  --glass-blur: 16px;
+}
+
+.primary {
+  background:
+    linear-gradient(135deg, var(--accent-soft) 0%, transparent 60%),
+    linear-gradient(135deg,
+      rgba(255, 255, 255, calc(var(--glass-opacity) * 1.8)) 0%,
+      rgba(255, 255, 255, calc(var(--glass-opacity) * 0.5)) 100%);
+}
+
+.btn:hover {
+  filter: brightness(1.18);
+  transform: translateY(-1px);
+}
+
+/* Press: material compresses very slightly */
+.btn:active {
+  transform: translateY(0) scale(0.97);
+  filter: brightness(1.05);
+  transition-duration: 0.08s;
+}
+
+.ghost {
+  --glass-opacity: 0.05;
+  color: var(--text-secondary);
+}
+.ghost:hover { color: var(--text-primary); }
+
+[data-theme="light"] .btn { --glass-opacity: 0.6; }
+[data-theme="light"] .ghost { --glass-opacity: 0.4; }
