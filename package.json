@@ -1,1 +1,26 @@
-{"dependencies":{"next":"^14.2.18","react":"^18.3.1","react-dom":"^18.3.1"},"description":"Personal portfolio of Mathias Klassen — Liquid Glass design system, Next.js + TypeScript","devDependencies":{"@types/node":"^20.16.0","@types/react":"^18.3.5","@types/react-dom":"^18.3.0","typescript":"^5.6.2"},"name":"mathias-klassen-portfolio","private":true,"scripts":{"build":"next build","dev":"next dev","lint":"next lint","start":"next start"},"version":"1.0.0"}
+{
+  "dependencies": {
+    "next": "^15.5.28",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "description": "Personal portfolio of Mathias Klassen \u2014 Liquid Glass design system, Next.js + TypeScript",
+  "devDependencies": {
+    "@types/node": "^20.16.0",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "typescript": "^5.6.2"
+  },
+  "name": "mathias-klassen-portfolio",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "lint": "next lint",
+    "start": "next start"
+  },
+  "version": "1.0.0",
+  "overrides": {
+    "postcss": "^8.5.23"
+  }
+}
